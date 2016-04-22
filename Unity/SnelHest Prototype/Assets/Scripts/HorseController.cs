@@ -10,6 +10,8 @@ public class HorseController : MonoBehaviour {
 	public float stamina = 1;
 	public float speed = 0;
 	public Vector2 jumpForce;
+	public float baseMove;
+	public float baseMoveMod;
 
 	float slowValue = 1;
 	float crash = 0;
@@ -34,12 +36,14 @@ public class HorseController : MonoBehaviour {
 			speedMod = speedInp;
 			speedInp = 1;
 		}
-		if (Input.GetAxis (this.name) > 0) {
+		if (Input.GetAxis (this.name) < 0) {
 			jumpInp += Time.deltaTime;
+		} else {
+			jumpInp = 0;
 		}
 
 		speedMod -= 0.5f * Time.deltaTime;
-		stamina -= (speedMod / 100);
+		stamina -= (speedMod / 500);
 		stamina += 0.1f * Time.deltaTime * pc.GetLead (this.transform);
 
 		speedInp = Mathf.Clamp (speedInp, 0, 1);
@@ -47,9 +51,9 @@ public class HorseController : MonoBehaviour {
 		stamina = Mathf.Clamp (stamina, 0, 1);
 
 		if (stamina > 0.5f)
-			speed = (1 + speedMod) * slowValue;
+			speed = (baseMove + speedMod) * slowValue * baseMoveMod;
 		else if (stamina > 0.1f)
-			speed = (1 + speedMod) * 0.5f * slowValue;
+			speed = (baseMove + speedMod) * 0.5f * slowValue * baseMoveMod;
 		else {
 			speed = 0;
 			print (this.name + "! Your Horse Need To Rest");
@@ -58,11 +62,12 @@ public class HorseController : MonoBehaviour {
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
 		if (jumpInp >= 1) {
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
+			jumpInp = 0;
 		}
 
 
 		staminaBar.value = stamina;
-		staminaBar.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+		staminaBar.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

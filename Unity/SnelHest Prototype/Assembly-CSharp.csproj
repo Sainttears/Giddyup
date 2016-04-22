@@ -47,7 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Movement.cs" />
      <Compile Include="Assets\Movement1.cs" />
-     <Compile Include="Assets\PlayerlaneCollision.cs" />
      <Compile Include="Assets\Scripts\HorseController.cs" />
      <Compile Include="Assets\Scripts\Jumpscript.cs" />
      <Compile Include="Assets\Scripts\PositionChecker.cs" />

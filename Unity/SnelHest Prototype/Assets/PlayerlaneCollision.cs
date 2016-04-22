@@ -9,10 +9,4 @@ public class PlayerlaneCollision : MonoBehaviour {
 	void Update (){}
 
 		
-	void OnCollisonEnter2D(Collider2D other)
-	{
-		if (collision.gameObject.tag == "Collision")
-			Physics2D.IgnoreCollision ();
-
- }
 }
