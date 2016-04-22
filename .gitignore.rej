@@ -1,0 +1,18 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -1,8 +1,16 @@
++<<<<<<< HEAD
+ #ignore directories
+ _binary/
+ _temporary/
+ 
+ #ignore extensions
++=======
++# ignore directories
++_binary/
++_temporary/
++
++# ignore extensions
++>>>>>>> 2cde09e04bd390f5e7f23dcf4eafbf972543027b
+ *.exe
+ *.lib
+ *.dll
