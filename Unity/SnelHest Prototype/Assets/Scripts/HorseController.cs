@@ -18,7 +18,7 @@ public class HorseController : MonoBehaviour {
 
 	float speedMod = 0;
 	float speedInp = 1;
-	float jumpInp = 0;
+	public float jumpInp = 0;
 
 
 	void Awake(){
@@ -56,7 +56,7 @@ public class HorseController : MonoBehaviour {
 		speedMod = Mathf.Clamp (speedMod, 0, 100);
 		stamina = Mathf.Clamp (stamina, 0, 100);
 
-		speed = (baseMove + (speedMod / 10)) * slowValue * baseMoveMod * (stamina/100);
+		speed = (speedMod / 10) * slowValue * baseMoveMod * (stamina/100) * Time.deltaTime;
 		this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
