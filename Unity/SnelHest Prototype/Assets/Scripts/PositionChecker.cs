@@ -36,9 +36,9 @@ public class PositionChecker : MonoBehaviour {
 	public float GetLead(Transform obj){
 		float lead = players[0].position.x - obj.position.x;
 
-		if (lead < 1)
+		/*if (lead < 1)
 			lead = 1;
-		Mathf.Clamp (lead, 1, 10);
+		Mathf.Clamp (lead, 1, 10);*/
 
 		return Mathf.Abs(lead) / 2;
 	}
