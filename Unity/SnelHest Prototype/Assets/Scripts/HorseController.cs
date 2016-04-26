@@ -20,6 +20,7 @@ public class HorseController : MonoBehaviour {
 	float speedInp = 1;
 	float jumpInp = 0;
 
+
 	void Awake(){
 		pc = GameObject.Find ("Main Camera").GetComponent<PositionChecker> ();
 
@@ -43,15 +44,18 @@ public class HorseController : MonoBehaviour {
 			jumpInp = 0;
 		}
 
-		speedMod -= 0.1f * Time.deltaTime;
-		//stamina -= (speedMod);
-		stamina += 10 * Time.deltaTime;// * pc.GetLead (this.transform);
+		if (stamina <= 15)
+			speedMod -= 100 * Time.deltaTime;
+		else
+			speedMod -= 2.5f * Time.deltaTime;
+		stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
 
 		speedInp = Mathf.Clamp (speedInp, 0, 1);
 		speedMod = Mathf.Clamp (speedMod, 0, 100);
 		stamina = Mathf.Clamp (stamina, 0, 100);
 
 		speed = (baseMove + (speedMod / 10)) * slowValue * baseMoveMod * (stamina/100);
+		this.GetComponent<Animator> ().speed = this.speed;
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
 		if (jumpInp >= 0.4) {
