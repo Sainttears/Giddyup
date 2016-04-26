@@ -13,6 +13,7 @@ public class cameraScript : MonoBehaviour {
 	public float yMax;
 	
 	public float cameraZoomModifier = 1.8f;
+	public float xOffset;
 
 	public float playerDist;
 
@@ -31,9 +32,9 @@ public class cameraScript : MonoBehaviour {
 		Player2 = posCheck.GetPos (posCheck.GetLength());
 
 		playerDist = Vector2.Distance(Player1.transform.position, Player2.transform.position);
-		cameraCenter = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0.5f);
+		cameraCenter = Vector3.Lerp (Player1.transform.position, Player2.transform.position, 0f);
 
-		this.transform.position = new Vector3(Mathf.Clamp(cameraCenter.x, xMin, xMax), Mathf.Clamp(cameraCenter.y, -yMax, yMax), -10); 
+		this.transform.position = new Vector3(Mathf.Clamp(cameraCenter.x, xMin, xMax) + xOffset, Mathf.Clamp(cameraCenter.y, -yMax, yMax), -10); 
 
 		this.GetComponent<Camera>().orthographicSize = playerDist/cameraZoomModifier;
 		this.GetComponent<Camera>().orthographicSize = Mathf.Clamp(this.GetComponent<Camera>().orthographicSize, minSize, maxSize);

@@ -7,7 +7,7 @@ public class HorseController : MonoBehaviour {
 
 	public Slider staminaBar;
 
-	public float stamina = 1;
+	public float stamina = 100;
 	public float speed = 0;
 	public Vector2 jumpForce;
 	public float baseMove;
@@ -23,7 +23,7 @@ public class HorseController : MonoBehaviour {
 	void Awake(){
 		pc = GameObject.Find ("Main Camera").GetComponent<PositionChecker> ();
 
-		stamina = 1;
+		stamina = 100;
 		speed = 0;
 	}
 	
@@ -33,7 +33,8 @@ public class HorseController : MonoBehaviour {
 			speedInp -= Time.deltaTime;
 		}
 		if (Input.GetButtonUp (this.name)) {
-			speedMod = speedInp;
+			speedMod += (speedInp);
+			stamina -= speedInp * 2;
 			speedInp = 1;
 		}
 		if (Input.GetAxis (this.name) < 0) {
@@ -42,27 +43,21 @@ public class HorseController : MonoBehaviour {
 			jumpInp = 0;
 		}
 
-		speedMod -= 0.5f * Time.deltaTime;
-		stamina -= (speedMod / 300);
-		stamina += 0.1f * Time.deltaTime * pc.GetLead (this.transform);
+		speedMod -= 0.1f * Time.deltaTime;
+		//stamina -= (speedMod);
+		stamina += 10 * Time.deltaTime;// * pc.GetLead (this.transform);
 
 		speedInp = Mathf.Clamp (speedInp, 0, 1);
-		speedMod = Mathf.Clamp (speedMod, 0, 1);
-		stamina = Mathf.Clamp (stamina, 0, 1);
+		speedMod = Mathf.Clamp (speedMod, 0, 100);
+		stamina = Mathf.Clamp (stamina, 0, 100);
 
-		if (stamina > 0.3f)
-			speed = (baseMove + speedMod) * slowValue * baseMoveMod;
-		else if (stamina > 0.1f)
-			speed = (baseMove + speedMod) * 0.5f * slowValue * baseMoveMod;
-		else {
-			speed = 0;
-			print (this.name + "! Your Horse Need To Rest");
-		}
+		speed = (baseMove + (speedMod / 10)) * slowValue * baseMoveMod * (stamina/100);
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
 		if (jumpInp >= 0.4) {
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 			jumpInp = -10;
+			stamina -= 10;
 		}
 
 
@@ -88,6 +83,7 @@ public class HorseController : MonoBehaviour {
 	}
 	void OnTriggerExit2D(Collider2D other)
 	{
+		speedMod = speedMod * slowValue;
 		slowValue = 1;
 	}
 }
