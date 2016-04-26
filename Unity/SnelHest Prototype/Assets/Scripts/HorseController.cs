@@ -26,6 +26,8 @@ public class HorseController : MonoBehaviour {
 
 		stamina = 100;
 		speed = 0;
+
+		this.GetComponent<Animator> ().SetBool ("grounded", true);
 	}
 	
 	// Update is called once per frame
@@ -55,13 +57,14 @@ public class HorseController : MonoBehaviour {
 		stamina = Mathf.Clamp (stamina, 0, 100);
 
 		speed = (baseMove + (speedMod / 10)) * slowValue * baseMoveMod * (stamina/100);
-		this.GetComponent<Animator> ().speed = this.speed;
+		this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
 		if (jumpInp >= 0.4) {
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 			jumpInp = -10;
 			stamina -= 10;
+			this.GetComponent<Animator> ().SetBool ("grounded", false);
 		}
 
 
@@ -71,6 +74,7 @@ public class HorseController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other){
 		jumpInp = 0;
+		this.GetComponent<Animator> ().SetBool ("grounded", true);
 	}
 	void OnCollisionExit2D(Collision2D other){
 		jumpInp = -10;
