@@ -43,14 +43,14 @@ public class HorseController : MonoBehaviour {
 		}
 
 		speedMod -= 0.5f * Time.deltaTime;
-		stamina -= (speedMod / 500);
+		stamina -= (speedMod / 300);
 		stamina += 0.1f * Time.deltaTime * pc.GetLead (this.transform);
 
 		speedInp = Mathf.Clamp (speedInp, 0, 1);
 		speedMod = Mathf.Clamp (speedMod, 0, 1);
 		stamina = Mathf.Clamp (stamina, 0, 1);
 
-		if (stamina > 0.5f)
+		if (stamina > 0.3f)
 			speed = (baseMove + speedMod) * slowValue * baseMoveMod;
 		else if (stamina > 0.1f)
 			speed = (baseMove + speedMod) * 0.5f * slowValue * baseMoveMod;
@@ -60,9 +60,9 @@ public class HorseController : MonoBehaviour {
 		}
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
-		if (jumpInp >= 1) {
+		if (jumpInp >= 0.4) {
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
-			jumpInp = 0;
+			jumpInp = -10;
 		}
 
 
