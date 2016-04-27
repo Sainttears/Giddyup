@@ -1,6 +1,7 @@
 #ignore directories
 _binary/
 Unity/SnelHest Prototype/Temp/
+Unity/SnelHest Prototype/Library/metadata/
 
 #ignore extensions
 *.exe
@@ -12,6 +13,7 @@ Unity/SnelHest Prototype/Temp/
 *.opensdf
 *.opendb
 *.suo
+*.meta
 
 
 #
