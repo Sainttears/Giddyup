@@ -1,6 +1,6 @@
 #ignore directories
 _binary/
-_temporary/
+Unity/SnelHest Prototype/Temp/
 
 #ignore extensions
 *.exe

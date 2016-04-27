@@ -60,7 +60,7 @@ public class HorseController : MonoBehaviour {
 		this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 		this.transform.position += new Vector3 (speed / 10, 0, 0);
-		if (jumpInp >= 0.4) {
+		if (jumpInp >= 0.4 && stamina >= 10) {
 			this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 			jumpInp = -10;
 			stamina -= 10;
