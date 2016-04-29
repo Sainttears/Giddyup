@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\HorseController.cs" />
      <Compile Include="Assets\Scripts\PositionChecker.cs" />
      <Compile Include="Assets\Scripts\SlowValue.cs" />
-     <Compile Include="Assets\Scripts\StaminaPrototype.cs" />
      <Compile Include="Assets\Scripts\cameraScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
