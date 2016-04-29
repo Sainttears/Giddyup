@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/RobbansScene.unity
+- path: Assets/Scenes/ElisPrototypeScene.unity
   isLoaded: 1
   isActive: 1
