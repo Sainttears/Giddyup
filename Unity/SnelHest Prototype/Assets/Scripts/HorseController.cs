@@ -59,7 +59,7 @@ public class HorseController : MonoBehaviour {
 			speedMod -= 2.5f * Time.deltaTime;
 			stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
 
-			speed = (speedMod / 10) * slowValue * baseMoveMod * (stamina / 100) * Time.deltaTime;
+			speed = (speedMod / 10) * slowValue * baseMoveMod * Time.deltaTime;
 			this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 			this.transform.position += new Vector3 (speed / 10, 0, 0);
@@ -112,7 +112,7 @@ public class HorseController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Slow")
-			slowValue = other.GetComponent<SlowValue> ().GetSlow ();
+		slowValue = other.GetComponent<SlowValue> ().GetSlow ();
 		if (other.tag == "Stamina")
 			print ("Deplete Stamina");
 		if (other.tag == "Crash")
