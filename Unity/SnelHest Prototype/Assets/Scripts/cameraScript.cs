@@ -26,7 +26,6 @@ public class cameraScript : MonoBehaviour {
 
 	void Start(){
 		posCheck = this.GetComponent<PositionChecker> ();
-		playerDist = Vector2.Distance(leader.transform.position, looser.transform.position);
 	}
 	
 
