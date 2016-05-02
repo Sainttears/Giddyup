@@ -20,9 +20,14 @@ public class HorseController : MonoBehaviour {
 	bool grounded;
 	bool resting;
 	bool callOnce;
+	bool dnf = false;
+
+	Camera cam;
 
 
 	void Awake(){
+		cam = Camera.main;
+
 		pc = GameObject.Find ("Main Camera").GetComponent<PositionChecker> ();
 
 		stamina = 100;
@@ -37,57 +42,59 @@ public class HorseController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.GetComponent<Animator> ().SetBool ("grounded", grounded);
+		if (!dnf) {
+			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 
-		if (!resting) {
-			StopCoroutine (waitFor(2));
+			if (!resting) {
+				StopCoroutine (waitFor (2));
 
-			if (Input.GetButton (this.name)) {
-				speedInp -= Time.deltaTime;
-			}
-			if (Input.GetButtonUp (this.name)) {
-				speedMod += (speedInp);
-				stamina -= speedInp * 2;
-				speedInp = 1;
-			}
-			if (Input.GetAxis (this.name) < 0) {
-				jumpInp += Time.deltaTime;
-			} else {
-				jumpInp = 0;
-			}
+				if (Input.GetButton (this.name)) {
+					speedInp -= Time.deltaTime;
+				}
+				if (Input.GetButtonUp (this.name)) {
+					speedMod += (speedInp);
+					stamina -= speedInp * 2;
+					speedInp = 1;
+				}
+				if (Input.GetAxis (this.name) < 0) {
+					jumpInp += Time.deltaTime;
+				} else {
+					jumpInp = 0;
+				}
 				
-			speedMod -= 2.5f * Time.deltaTime;
-			stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
+				speedMod -= 2.5f * Time.deltaTime;
+				stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
 
-			speed = (speedMod / 10) * slowValue * baseMoveMod * Time.deltaTime;
-			this.GetComponent<Animator> ().SetFloat ("speed", speed);
+				speed = (speedMod / 10) * slowValue * baseMoveMod * Time.deltaTime;
+				this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
-			this.transform.position += new Vector3 (speed / 10, 0, 0);
-			if (jumpInp >= 0.4 && stamina >= 10 && grounded) {
-				this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
-				jumpInp = -10;
-				stamina -= 10;
-				grounded = false;
+				this.transform.position += new Vector3 (speed / 10, 0, 0);
+				if (jumpInp >= 0.4 && stamina >= 10 && grounded) {
+					this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
+					jumpInp = -10;
+					stamina -= 10;
+					grounded = false;
+				}
+
+				if (stamina <= 10)
+					resting = true;
+
+			} else if (resting) {
+				stamina -= 10 * Time.deltaTime;
+				StartCoroutine (waitFor (3));
+				if (!callOnce) {
+					speedMod = speedMod / 4;
+					callOnce = true;
+				}
 			}
 
-			if (stamina <= 10)
-				resting = true;
+			speedInp = Mathf.Clamp (speedInp, 0, 1);
+			speedMod = Mathf.Clamp (speedMod, 0, 100);
+			stamina = Mathf.Clamp (stamina, 0, 100);
 
-		} else if (resting) {
-			stamina -= 10 * Time.deltaTime;
-			StartCoroutine (waitFor (3));
-			if (!callOnce) {
-				speedMod = speedMod / 4;
-				callOnce = true;
-			}
+			staminaBar.value = stamina;
+			staminaBar.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y + 1, 0);
 		}
-
-		speedInp = Mathf.Clamp (speedInp, 0, 1);
-		speedMod = Mathf.Clamp (speedMod, 0, 100);
-		stamina = Mathf.Clamp (stamina, 0, 100);
-
-		staminaBar.value = stamina;
-		staminaBar.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, 0);
 	}
 
 
@@ -122,5 +129,12 @@ public class HorseController : MonoBehaviour {
 	{
 		speedMod = speedMod * slowValue;
 		slowValue = 1;
+	}
+
+	void OnBecameInvisible(){
+		dnf = true;
+		this.gameObject.SetActive (false);
+		staminaBar.gameObject.SetActive (false);
+		cam.GetComponent<PositionChecker> ().DNF ();
 	}
 }

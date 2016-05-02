@@ -14,6 +14,9 @@ public class Finish : MonoBehaviour {
 	float pThreeTime;
 	float pFourTime;
 
+	float activePlayers;
+	float playersFinnished = 0;
+
 	// Use this for initialization
 	void Start () {
 		time = 0;
@@ -24,11 +27,15 @@ public class Finish : MonoBehaviour {
 		pFourTime = 0;
 
 		endScreen.SetActive (false);
+
+		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(pOneTime > 0 || pTwoTime > 0 || pThreeTime > 0 || pFourTime > 0)
+		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
+
+		if (activePlayers == playersFinnished)
 			endScreen.SetActive (true);
 		
 		time += Time.deltaTime;
@@ -47,5 +54,13 @@ public class Finish : MonoBehaviour {
 		if (other.name == "Player Four")
 			pFourTime = time;
 
+		playersFinnished += 1;
+
+		/* To do:
+		 * Change these if statemets to somehting like this:
+		 * if(...){
+		 * 		pXTime = time;
+		 * 		timeScore.text = timeScore.text + "\nPlayer X Time: " + pXTime.ToString("F2");
+		 * */
 	}
 }
