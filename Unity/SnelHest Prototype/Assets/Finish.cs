@@ -29,6 +29,8 @@ public class Finish : MonoBehaviour {
 		endScreen.SetActive (false);
 
 		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
+
+		timeScore.text = "Race Finished!";
 	}
 	
 	// Update is called once per frame
@@ -41,18 +43,26 @@ public class Finish : MonoBehaviour {
 		time += Time.deltaTime;
 		timer.text = time.ToString ("F2");
 
-		timeScore.text = "Race Finished!\nPlayer One Time: " + pOneTime.ToString ("F2") + "\nPlayer Two Time: " + pTwoTime.ToString ("F2") + "\nPlayer Three Time: " + pThreeTime.ToString ("F2") + "\nPlayer Four Time: " + pFourTime.ToString ("F2");
+		//timeScore.text = "Race Finished!\nPlayer One Time: " + pOneTime.ToString ("F2") + "\nPlayer Two Time: " + pTwoTime.ToString ("F2") + "\nPlayer Three Time: " + pThreeTime.ToString ("F2") + "\nPlayer Four Time: " + pFourTime.ToString ("F2");
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.name == "Player One")
+		if (other.name == "Player One") {
 			pOneTime = time;
-		if (other.name == "Player Two")
+			timeScore.text = timeScore.text + "\nPlayer One Time: " + pOneTime.ToString("F2");
+		}
+		if (other.name == "Player Two") {
 			pTwoTime = time;
-		if (other.name == "Player Three")
+			timeScore.text = timeScore.text + "\nPlayer Two Time: " + pTwoTime.ToString("F2");
+		}
+		if (other.name == "Player Three") {
 			pThreeTime = time;
-		if (other.name == "Player Four")
+			timeScore.text = timeScore.text + "\nPlayer Three Time: " + pThreeTime.ToString("F2");
+		}
+		if (other.name == "Player Four") {
 			pFourTime = time;
+			timeScore.text = timeScore.text + "\nPlayer Four Time: " + pFourTime.ToString("F2");
+		}
 
 		playersFinnished += 1;
 
