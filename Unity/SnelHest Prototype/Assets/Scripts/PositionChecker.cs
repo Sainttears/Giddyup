@@ -9,6 +9,9 @@ public class PositionChecker : MonoBehaviour {
 	Transform[] players;
 
 
+	int dnf = 0;
+
+
 	// Use this for initialization
 	void Start () {
 		players = new Transform[objectNames.Length];
@@ -19,7 +22,7 @@ public class PositionChecker : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		for (int i = 0; i < players.Length; i++) {
 			if (i == 0) {
 			
@@ -36,10 +39,6 @@ public class PositionChecker : MonoBehaviour {
 	public float GetLead(Transform obj){
 		float lead = players[0].position.x - obj.position.x;
 
-		/*if (lead < 1)
-			lead = 1;
-		Mathf.Clamp (lead, 1, 10);*/
-
 		return Mathf.Abs(lead) / 2;
 	}
 
@@ -49,7 +48,17 @@ public class PositionChecker : MonoBehaviour {
 	}
 
 	//Get Lenght of players[]
-	public int GetLength(){
-		return players.Length;
+	public int GetLength(int i){
+		return players.Length - dnf + i;
+	}
+
+	//Add one to DNF (Did Not Finish)
+	public void DNF(){
+		dnf += 1;
+		GetComponent<cameraScript> ().AddDNF ();
+	}
+		
+	public int GetDNF(){
+		return dnf;
 	}
 }
