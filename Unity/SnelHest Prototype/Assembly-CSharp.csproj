@@ -48,6 +48,7 @@
      <Compile Include="Assets\Finish.cs" />
      <Compile Include="Assets\Scripts\Cloudmovement.cs" />
      <Compile Include="Assets\Scripts\HorseController.cs" />
+     <Compile Include="Assets\Scripts\Particleevent.cs" />
      <Compile Include="Assets\Scripts\PositionChecker.cs" />
      <Compile Include="Assets\Scripts\SlowValue.cs" />
      <Compile Include="Assets\Scripts\cameraScript.cs" />
