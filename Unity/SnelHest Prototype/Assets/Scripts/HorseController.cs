@@ -8,6 +8,8 @@ public class HorseController : MonoBehaviour {
 	public Slider staminaBar;
 	public Vector2 jumpForce;
 
+	public ParticleSystem ps;
+
 	float stamina = 100;
 	float speed = 0;
 	float baseMoveMod = 20;
@@ -47,6 +49,11 @@ public class HorseController : MonoBehaviour {
 
 			if (!resting) {
 				StopCoroutine (waitFor (2));
+
+				if (grounded)
+					ParticleSystemExtension.SetEmissionRate (ps, 100);
+				else
+					ParticleSystemExtension.SetEmissionRate (ps, 0);
 
 				if (Input.GetButton (this.name)) {
 					speedInp -= Time.deltaTime;
@@ -136,5 +143,23 @@ public class HorseController : MonoBehaviour {
 		this.gameObject.SetActive (false);
 		staminaBar.gameObject.SetActive (false);
 		cam.GetComponent<PositionChecker> ().DNF ();
+	}
+}
+
+public static class ParticleSystemExtension{
+	public static void EnableEmission(this ParticleSystem particleSystem, bool enabled){
+		var emission = particleSystem.emission;
+		emission.enabled = enabled;
+	}
+
+	public static float GetEmissionRate(this ParticleSystem particleSystem){
+		return particleSystem.emission.rate.constantMax;
+	}
+
+	public static void SetEmissionRate(this ParticleSystem particleSystem, float emissionRate){
+		var emission = particleSystem.emission;
+		var rate = emission.rate;
+		rate.constantMax = emissionRate;
+		emission.rate = rate;
 	}
 }
