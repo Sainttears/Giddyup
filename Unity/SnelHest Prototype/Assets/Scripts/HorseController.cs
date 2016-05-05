@@ -51,7 +51,7 @@ public class HorseController : MonoBehaviour {
 				StopCoroutine (waitFor (2));
 
 				if (grounded)
-					ParticleSystemExtension.SetEmissionRate (ps, 100);
+					ParticleSystemExtension.SetEmissionRate (ps, 30);
 				else
 					ParticleSystemExtension.SetEmissionRate (ps, 0);
 
