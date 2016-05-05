@@ -6,6 +6,7 @@ public class Finish : MonoBehaviour {
 	public Text timer;
 	public GameObject endScreen;
 	public Text timeScore;
+	public Text cd;
 
 	float time;
 
@@ -17,6 +18,8 @@ public class Finish : MonoBehaviour {
 	float activePlayers;
 	float playersFinnished = 0;
 
+	bool hasBegun = false;
+
 	// Use this for initialization
 	void Start () {
 		time = 0;
@@ -27,21 +30,26 @@ public class Finish : MonoBehaviour {
 		pFourTime = 0;
 
 		endScreen.SetActive (false);
+		cd.gameObject.SetActive (false);
 
 		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 
 		timeScore.text = "Race Finished!";
+
+		StartCoroutine (CountDown ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
+		if (hasBegun) {
+			activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 
-		if (activePlayers == playersFinnished)
-			endScreen.SetActive (true);
+			if (activePlayers == playersFinnished)
+				endScreen.SetActive (true);
 		
-		time += Time.deltaTime;
-		timer.text = time.ToString ("F2");
+			time += Time.deltaTime;
+			timer.text = time.ToString ("F2");
+		}
 
 		//timeScore.text = "Race Finished!\nPlayer One Time: " + pOneTime.ToString ("F2") + "\nPlayer Two Time: " + pTwoTime.ToString ("F2") + "\nPlayer Three Time: " + pThreeTime.ToString ("F2") + "\nPlayer Four Time: " + pFourTime.ToString ("F2");
 	}
@@ -65,12 +73,30 @@ public class Finish : MonoBehaviour {
 		}
 
 		playersFinnished += 1;
+	}
 
-		/* To do:
-		 * Change these if statemets to somehting like this:
-		 * if(...){
-		 * 		pXTime = time;
-		 * 		timeScore.text = timeScore.text + "\nPlayer X Time: " + pXTime.ToString("F2");
-		 * */
+	public void Restart(){
+		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	IEnumerator CountDown(){
+		yield return new WaitForSeconds (1);
+		cd.gameObject.SetActive (true);
+		cd.text = "Get Ready!";
+		yield return new WaitForSeconds (1);
+		cd.text = "";
+		yield return new WaitForSeconds (1);
+		cd.text = "Set!";
+		yield return new WaitForSeconds (1);
+		cd.text = "";
+		yield return new WaitForSeconds (1);
+		cd.text = "Go!";
+		hasBegun = true;
+		yield return new WaitForSeconds (1);
+		cd.gameObject.SetActive (false);
+	}
+
+	public bool HasBegun(){
+		return hasBegun;
 	}
 }

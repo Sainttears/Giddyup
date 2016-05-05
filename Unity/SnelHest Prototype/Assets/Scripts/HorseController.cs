@@ -10,6 +10,10 @@ public class HorseController : MonoBehaviour {
 
 	public ParticleSystem ps;
 
+	public GameObject finish;
+
+	Finish fin;
+
 	float stamina = 100;
 	float speed = 0;
 	float baseMoveMod = 20;
@@ -31,6 +35,7 @@ public class HorseController : MonoBehaviour {
 		cam = Camera.main;
 
 		pc = GameObject.Find ("Main Camera").GetComponent<PositionChecker> ();
+		fin = finish.GetComponent<Finish> ();
 
 		stamina = 100;
 		speed = 0;
@@ -40,11 +45,13 @@ public class HorseController : MonoBehaviour {
 
 		resting = false;
 		callOnce = false;
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (!dnf) {
+		if (!dnf && fin.HasBegun()) {
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 
 			if (!resting) {
