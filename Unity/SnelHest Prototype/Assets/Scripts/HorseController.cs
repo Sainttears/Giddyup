@@ -57,10 +57,16 @@ public class HorseController : MonoBehaviour {
 			if (!resting) {
 				StopCoroutine (waitFor (2));
 
-				if (grounded)
-					ParticleSystemExtension.SetEmissionRate (ps, 30);
-				else
+				if (grounded) {
+					ParticleSystemExtension.SetEmissionRate (ps, speed * 20);
+					if(speed > 0.25)
+						GetComponent<AudioSource> ().mute = false;
+					else
+						GetComponent<AudioSource> ().mute = true;
+				} else {
 					ParticleSystemExtension.SetEmissionRate (ps, 0);
+					GetComponent<AudioSource> ().mute = true;
+				}
 
 				if (Input.GetButton (this.name)) {
 					speedInp -= Time.deltaTime;

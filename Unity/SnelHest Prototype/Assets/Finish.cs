@@ -8,6 +8,10 @@ public class Finish : MonoBehaviour {
 	public Text timeScore;
 	public Text cd;
 
+	public AudioClip getReady;
+	public AudioClip setClip;
+	public AudioClip gunFire;
+
 	float time;
 
 	float pOneTime;
@@ -83,14 +87,17 @@ public class Finish : MonoBehaviour {
 		yield return new WaitForSeconds (1);
 		cd.gameObject.SetActive (true);
 		cd.text = "Get Ready!";
+		AudioSource.PlayClipAtPoint (getReady, Camera.main.transform.position);
 		yield return new WaitForSeconds (1);
 		cd.text = "";
 		yield return new WaitForSeconds (1);
 		cd.text = "Set!";
+		AudioSource.PlayClipAtPoint (setClip, Camera.main.transform.position);
 		yield return new WaitForSeconds (1);
 		cd.text = "";
 		yield return new WaitForSeconds (1);
 		cd.text = "Go!";
+		AudioSource.PlayClipAtPoint (gunFire, Camera.main.transform.position);
 		hasBegun = true;
 		yield return new WaitForSeconds (1);
 		cd.gameObject.SetActive (false);
