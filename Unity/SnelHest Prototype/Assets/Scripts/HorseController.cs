@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HorseController : MonoBehaviour {
 	PositionChecker pc;
 
-	public Slider staminaBar;
+	//public Slider staminaBar;
 	public Vector2 jumpForce;
 
 	public ParticleSystem ps;
@@ -14,12 +14,12 @@ public class HorseController : MonoBehaviour {
 
 	Finish fin;
 
-	float stamina = 100;
+	//float stamina = 100;
 	float speed = 0;
 	float baseMoveMod = 20;
 	float slowValue = 1;
 	float crash = 0;
-	float speedMod = 0;
+	float speedMod = 10;
 	float speedInp = 1;
 	float jumpInp = 0;
 
@@ -37,8 +37,7 @@ public class HorseController : MonoBehaviour {
 		pc = GameObject.Find ("Main Camera").GetComponent<PositionChecker> ();
 		fin = finish.GetComponent<Finish> ();
 
-		stamina = 100;
-		speed = 0;
+		//stamina = 100;
 
 		grounded = true;
 		this.GetComponent<Animator> ().SetBool ("grounded", true);
@@ -55,10 +54,10 @@ public class HorseController : MonoBehaviour {
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 
 			if (!resting) {
-				StopCoroutine (waitFor (2));
+				//StopCoroutine (waitFor (2));
 
 				if (grounded) {
-					ParticleSystemExtension.SetEmissionRate (ps, speed * 20);
+					ParticleSystemExtension.SetEmissionRate (ps, speed * 50);
 					if(speed > 0.25)
 						GetComponent<AudioSource> ().mute = false;
 					else
@@ -73,7 +72,7 @@ public class HorseController : MonoBehaviour {
 				}
 				if (Input.GetButtonUp (this.name)) {
 					speedMod += (speedInp);
-					stamina -= speedInp * 2;
+					//stamina -= speedInp * 2;
 					speedInp = 1;
 				}
 				if (Input.GetAxis (this.name) < 0) {
@@ -82,26 +81,26 @@ public class HorseController : MonoBehaviour {
 					jumpInp = 0;
 				}
 				
-				speedMod -= 2.5f * Time.deltaTime;
-				stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
+				speedMod -= 1.5f * Time.deltaTime;
+				//stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
 
-				speed = (speedMod / 10) * slowValue * baseMoveMod * Time.deltaTime;
+				speed = (speedMod / 5) * slowValue * baseMoveMod * Time.deltaTime;
 				this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 				this.transform.position += new Vector3 (speed / 10, 0, 0);
-				if (jumpInp >= 0.4 && stamina >= 10 && grounded) {
+				if (jumpInp >= 0.4 && grounded) {
 					this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 					jumpInp = -10;
-					stamina -= 10;
+					//stamina -= 10;
 					grounded = false;
 				}
 
-				if (stamina <= 10)
-					resting = true;
+				//if (stamina <= 10)
+					//resting = true;
 
 			} else if (resting) {
-				stamina -= 10 * Time.deltaTime;
-				StartCoroutine (waitFor (3));
+				//stamina -= 10 * Time.deltaTime;
+				//StartCoroutine (waitFor (3));
 				if (!callOnce) {
 					speedMod = speedMod / 4;
 					callOnce = true;
@@ -110,22 +109,22 @@ public class HorseController : MonoBehaviour {
 
 			speedInp = Mathf.Clamp (speedInp, 0, 1);
 			speedMod = Mathf.Clamp (speedMod, 0, 100);
-			stamina = Mathf.Clamp (stamina, 0, 100);
+			//stamina = Mathf.Clamp (stamina, 0, 100);
 
-			staminaBar.value = stamina;
-			staminaBar.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y + 1, 0);
+			//staminaBar.value = stamina;
+			//staminaBar.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y + 1, 0);
 		}
 	}
 
 
-	public IEnumerator waitFor (float i){
-		yield return new WaitForSeconds (i);
-		stamina += 50 * Time.deltaTime;
-		if (stamina >= 90) {
-			callOnce = false;
-			resting = false;
-		}
-	}
+	//public IEnumerator waitFor (float i){
+		//yield return new WaitForSeconds (i);
+		//stamina += 50 * Time.deltaTime;
+		//if (stamina >= 90) {
+		//	callOnce = false;
+		//	resting = false;
+		//}
+	//}
 
 
 	void OnCollisionEnter2D(Collision2D other){
@@ -154,7 +153,7 @@ public class HorseController : MonoBehaviour {
 	void OnBecameInvisible(){
 		dnf = true;
 		this.gameObject.SetActive (false);
-		staminaBar.gameObject.SetActive (false);
+		//staminaBar.gameObject.SetActive (false);
 		cam.GetComponent<PositionChecker> ().DNF ();
 	}
 }
