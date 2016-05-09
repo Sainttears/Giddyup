@@ -88,11 +88,11 @@ public class HorseController : MonoBehaviour {
 				this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 				this.transform.position += new Vector3 (speed / 10, 0, 0);
-				if (jumpInp >= 0.4 && grounded) {
+				if (Input.GetButtonDown(this.name + " Jump") && Input.GetAxis(this.name) < 0 && grounded) {
 					this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 					jumpInp = -10;
 					//stamina -= 10;
-					grounded = false;
+					//grounded = false;
 				}
 
 				//if (stamina <= 10)
@@ -133,6 +133,7 @@ public class HorseController : MonoBehaviour {
 	}
 	void OnCollisionExit2D(Collision2D other){
 		jumpInp = -10;
+		grounded = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
