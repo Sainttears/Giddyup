@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Finish : MonoBehaviour {
+	public GameObject pauseScreen;
 	public Text timer;
 	public GameObject endScreen;
 	public Text timeScore;
@@ -35,6 +36,7 @@ public class Finish : MonoBehaviour {
 
 		endScreen.SetActive (false);
 		cd.gameObject.SetActive (false);
+		pauseScreen.SetActive (false);
 
 		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 
@@ -53,6 +55,16 @@ public class Finish : MonoBehaviour {
 		
 			time += Time.deltaTime;
 			timer.text = time.ToString ("F2");
+		}
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (Time.timeScale == 1) {
+				pauseScreen.SetActive (true);
+				Time.timeScale = 0;
+			} else {
+				pauseScreen.SetActive (false);
+				Time.timeScale = 1;
+			}
 		}
 
 		//timeScore.text = "Race Finished!\nPlayer One Time: " + pOneTime.ToString ("F2") + "\nPlayer Two Time: " + pTwoTime.ToString ("F2") + "\nPlayer Three Time: " + pThreeTime.ToString ("F2") + "\nPlayer Four Time: " + pFourTime.ToString ("F2");
@@ -80,6 +92,7 @@ public class Finish : MonoBehaviour {
 	}
 
 	public void Restart(){
+		Time.timeScale = 1;
 		Application.LoadLevel (Application.loadedLevel);
 	}
 

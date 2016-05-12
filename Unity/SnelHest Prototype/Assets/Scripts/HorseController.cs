@@ -6,7 +6,7 @@ public class HorseController : MonoBehaviour {
 	PositionChecker pc;
 
 	//public Slider staminaBar;
-	public Vector2 jumpForce;
+	Vector2 jumpForce;
 
 	public ParticleSystem ps;
 
@@ -14,6 +14,7 @@ public class HorseController : MonoBehaviour {
 
 	Finish fin;
 
+	float bomAmmount = 0;
 	//float stamina = 100;
 	float speed = 0;
 	float baseMoveMod = 20;
@@ -27,6 +28,8 @@ public class HorseController : MonoBehaviour {
 	bool crashed;
 	bool jumpOnce;
 	bool dnf = false;
+	bool inBush = false;
+	bool inWater = false;
 
 	Vector2 crashForce;
 
@@ -46,6 +49,8 @@ public class HorseController : MonoBehaviour {
 
 		crashed = false;
 		jumpOnce = false;
+
+		jumpForce = new Vector2 (50, 200);
 	}
 	
 	// Update is called once per frame
@@ -53,6 +58,8 @@ public class HorseController : MonoBehaviour {
 		if (!dnf && fin.HasBegun()) {
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
+			this.GetComponent<Animator> ().SetBool ("inBush", inBush);
+			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
 
 			if (!crashed) {
 				//StopCoroutine (waitFor (2));
@@ -111,8 +118,13 @@ public class HorseController : MonoBehaviour {
 				//}
 			}
 
-			speedInp = Mathf.Clamp (speedInp, 0, 1);
+			speedInp = Mathf.Clamp (speedInp, 0.75f, 1);
 			speedMod = Mathf.Clamp (speedMod, 0, 100);
+
+			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
+			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
+			this.GetComponent<Animator> ().SetBool ("inBush", inBush);
+			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
 			//stamina = Mathf.Clamp (stamina, 0, 100);
 
 			//staminaBar.value = stamina;
@@ -142,13 +154,23 @@ public class HorseController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Slow")
-		slowValue = other.GetComponent<SlowValue> ().GetSlow ();
-		if (other.tag == "Stamina")
-			print ("Deplete Stamina");
+		if (other.tag == "Slow") {
+			slowValue = other.GetComponent<SlowValue> ().GetSlow ();
+			inBush = true;
+		}
+		if (other.tag == "Water") {
+			slowValue = other.GetComponent<SlowValue> ().GetSlow ();
+			inWater = true;
+		}
+		if (other.tag == "Bom") {
+			bomAmmount = bomAmmount + other.GetComponent<SlowValue> ().GetSlow ();
+			slowValue = 0.5f - (bomAmmount / 10);
+			other.GetComponentInParent<Rigidbody2D> ().isKinematic = false;
+			other.GetComponentInParent<Rigidbody2D> ().AddForce (new Vector2(100, 50));
+		}
 		if (other.tag == "Crash") {
-			//slowValue = crash;
-			crashForce = new Vector2 (speedMod * 10, 100);
+			speedMod = speedMod / 2;
+			crashForce = new Vector2 (speedMod * 10, 0);
 			crashed = true;
 			StartCoroutine (OnCrash ());
 		}
@@ -157,6 +179,9 @@ public class HorseController : MonoBehaviour {
 	{
 		speedMod = speedMod * slowValue;
 		slowValue = 1;
+		bomAmmount = 0;
+		inWater = false;
+		inBush = false;
 	}
 
 	void OnBecameInvisible(){
