@@ -12,6 +12,10 @@ public class HorseController : MonoBehaviour {
 
 	public GameObject finish;
 
+	public AudioClip slowSound;
+	public AudioClip splashSound;
+	public AudioClip crashSound;
+
 	Finish fin;
 
 	float bomAmmount = 0;
@@ -157,22 +161,26 @@ public class HorseController : MonoBehaviour {
 		if (other.tag == "Slow") {
 			slowValue = other.GetComponent<SlowValue> ().GetSlow ();
 			inBush = true;
+			AudioSource.PlayClipAtPoint (slowSound, Camera.main.transform.position);
 		}
 		if (other.tag == "Water") {
 			slowValue = other.GetComponent<SlowValue> ().GetSlow ();
 			inWater = true;
+			AudioSource.PlayClipAtPoint (splashSound, Camera.main.transform.position);
 		}
 		if (other.tag == "Bom") {
 			bomAmmount = bomAmmount + other.GetComponent<SlowValue> ().GetSlow ();
 			slowValue = 0.5f - (bomAmmount / 10);
 			other.GetComponentInParent<Rigidbody2D> ().isKinematic = false;
 			other.GetComponentInParent<Rigidbody2D> ().AddForce (new Vector2(100, 50));
+			AudioSource.PlayClipAtPoint (crashSound, Camera.main.transform.position);
 		}
 		if (other.tag == "Crash") {
 			speedMod = speedMod / 2;
 			crashForce = new Vector2 (speedMod * 10, 0);
 			crashed = true;
 			StartCoroutine (OnCrash ());
+			AudioSource.PlayClipAtPoint (crashSound, Camera.main.transform.position);
 		}
 	}
 	void OnTriggerExit2D(Collider2D other)

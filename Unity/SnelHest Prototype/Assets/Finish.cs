@@ -25,6 +25,8 @@ public class Finish : MonoBehaviour {
 
 	bool hasBegun = false;
 
+	private string Screen_Shot_File_Name;
+
 	// Use this for initialization
 	void Start () {
 		time = 0;
@@ -71,6 +73,10 @@ public class Finish : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if (playersFinnished < 1) {
+			TakeScreenshot ();
+		}
+
 		if (other.name == "Player One") {
 			pOneTime = time;
 			timeScore.text = timeScore.text + "\nPlayer One Time: " + pOneTime.ToString("F2");
@@ -118,5 +124,16 @@ public class Finish : MonoBehaviour {
 
 	public bool HasBegun(){
 		return hasBegun;
+	}
+
+	void TakeScreenshot(){
+		Screen_Shot_File_Name = "FinishImage.png";
+		Application.CaptureScreenshot (Screen_Shot_File_Name);
+		string Origin_Path = System.IO.Path.Combine (Application.persistentDataPath, Screen_Shot_File_Name);
+		string Path = Application.dataPath + Screen_Shot_File_Name;
+		if (System.IO.File.Exists (Origin_Path)) {
+			System.IO.File.Move (Origin_Path, Path);
+		} else
+			print ("NO");
 	}
 }
