@@ -24,9 +24,11 @@ public class HorseController : MonoBehaviour {
 	float jumpInp = 0;
 
 	bool grounded;
-	bool resting;
-	bool callOnce;
+	bool crashed;
+	bool jumpOnce;
 	bool dnf = false;
+
+	Vector2 crashForce;
 
 	Camera cam;
 
@@ -42,18 +44,17 @@ public class HorseController : MonoBehaviour {
 		grounded = true;
 		this.GetComponent<Animator> ().SetBool ("grounded", true);
 
-		resting = false;
-		callOnce = false;
-
-
+		crashed = false;
+		jumpOnce = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (!dnf && fin.HasBegun()) {
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
+			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
 
-			if (!resting) {
+			if (!crashed) {
 				//StopCoroutine (waitFor (2));
 
 				if (grounded) {
@@ -88,23 +89,26 @@ public class HorseController : MonoBehaviour {
 				this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 				this.transform.position += new Vector3 (speed / 10, 0, 0);
-				if (Input.GetButtonDown(this.name + " Jump") && Input.GetAxis(this.name) < 0 && grounded) {
+				if (!Input.GetButton(this.name + " Jump") && grounded && !jumpOnce) {
 					this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
-					jumpInp = -10;
+					jumpOnce = true;
 					//stamina -= 10;
-					//grounded = false;
+					grounded = false;
 				}
+				if(Input.GetButtonDown(this.name + " Jump"))
+					jumpOnce = false;
 
 				//if (stamina <= 10)
-					//resting = true;
+					//crashed = true;
 
-			} else if (resting) {
+			} else if (crashed) {
+				speedMod -= Time.deltaTime * 50;
 				//stamina -= 10 * Time.deltaTime;
 				//StartCoroutine (waitFor (3));
-				if (!callOnce) {
-					speedMod = speedMod / 4;
-					callOnce = true;
-				}
+				//if (!callOnce) {
+				//	speedMod = speedMod / 4;
+				//	callOnce = true;
+				//}
 			}
 
 			speedInp = Mathf.Clamp (speedInp, 0, 1);
@@ -122,7 +126,7 @@ public class HorseController : MonoBehaviour {
 		//stamina += 50 * Time.deltaTime;
 		//if (stamina >= 90) {
 		//	callOnce = false;
-		//	resting = false;
+		//	crashed = false;
 		//}
 	//}
 
@@ -142,8 +146,12 @@ public class HorseController : MonoBehaviour {
 		slowValue = other.GetComponent<SlowValue> ().GetSlow ();
 		if (other.tag == "Stamina")
 			print ("Deplete Stamina");
-		if (other.tag == "Crash")
-			slowValue = crash;
+		if (other.tag == "Crash") {
+			//slowValue = crash;
+			crashForce = new Vector2 (speedMod * 10, 100);
+			crashed = true;
+			StartCoroutine (OnCrash ());
+		}
 	}
 	void OnTriggerExit2D(Collider2D other)
 	{
@@ -156,6 +164,12 @@ public class HorseController : MonoBehaviour {
 		this.gameObject.SetActive (false);
 		//staminaBar.gameObject.SetActive (false);
 		cam.GetComponent<PositionChecker> ().DNF ();
+	}
+
+	IEnumerator OnCrash(){
+		this.GetComponent<Rigidbody2D> ().AddForce (crashForce);
+		yield return new WaitUntil (() => speedMod <= 0);
+		crashed = false;
 	}
 }
 
