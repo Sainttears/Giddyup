@@ -63,14 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Movement.cs" />
-    <Compile Include="Assets\Movement1.cs" />
+    <Compile Include="Assets\Finish.cs" />
+    <Compile Include="Assets\Scripts\Cloudmovement.cs" />
     <Compile Include="Assets\Scripts\HorseController.cs" />
-    <Compile Include="Assets\Scripts\Jumpscript.cs" />
     <Compile Include="Assets\Scripts\PositionChecker.cs" />
-    <Compile Include="Assets\Scripts\StaminaPrototype.cs" />
+    <Compile Include="Assets\Scripts\SlowValue.cs" />
     <Compile Include="Assets\Scripts\cameraScript.cs" />
-    <Compile Include="Assets\SlowValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -58,6 +58,8 @@ public class HorseController : MonoBehaviour {
 		if (!dnf && fin.HasBegun()) {
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
+			this.GetComponent<Animator> ().SetBool ("inBush", inBush);
+			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
 
 			if (!crashed) {
 				//StopCoroutine (waitFor (2));
@@ -121,6 +123,8 @@ public class HorseController : MonoBehaviour {
 
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
+			this.GetComponent<Animator> ().SetBool ("inBush", inBush);
+			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
 			//stamina = Mathf.Clamp (stamina, 0, 100);
 
 			//staminaBar.value = stamina;
