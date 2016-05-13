@@ -83,8 +83,8 @@ public class HorseController : MonoBehaviour {
 					speedInp -= Time.deltaTime;
 				}
 				if (Input.GetButtonUp (this.name)) {
-					speedMod += (speedInp);
-					//stamina -= speedInp * 2;
+					if(speedInp <= 0.9f)
+						speedMod += (speedInp);
 					speedInp = 1;
 				}
 				if (Input.GetAxis (this.name) < 0) {
@@ -122,7 +122,7 @@ public class HorseController : MonoBehaviour {
 				//}
 			}
 
-			speedInp = Mathf.Clamp (speedInp, 0.75f, 1);
+			speedInp = Mathf.Clamp (speedInp, 0, 1);
 			speedMod = Mathf.Clamp (speedMod, 0, 100);
 
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
