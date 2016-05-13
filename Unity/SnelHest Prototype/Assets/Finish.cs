@@ -6,6 +6,7 @@ public class Finish : MonoBehaviour {
 	public GameObject pauseScreen;
 	public Text timer;
 	public GameObject endScreen;
+	public Image img;
 	public Text timeScore;
 	public Text cd;
 
@@ -26,6 +27,8 @@ public class Finish : MonoBehaviour {
 	bool hasBegun = false;
 
 	private string Screen_Shot_File_Name;
+
+	Sprite sprite;
 
 	// Use this for initialization
 	void Start () {
@@ -49,11 +52,11 @@ public class Finish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (playersFinnished == activePlayers)
+			StartCoroutine (ShowScore());
+
 		if (hasBegun) {
 			activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
-
-			if (activePlayers == playersFinnished)
-				endScreen.SetActive (true);
 		
 			time += Time.deltaTime;
 			timer.text = time.ToString ("F2");
@@ -128,12 +131,25 @@ public class Finish : MonoBehaviour {
 
 	void TakeScreenshot(){
 		Screen_Shot_File_Name = "FinishImage.png";
-		Application.CaptureScreenshot (Screen_Shot_File_Name);
-		string Origin_Path = System.IO.Path.Combine (Application.persistentDataPath, Screen_Shot_File_Name);
-		string Path = Application.dataPath + Screen_Shot_File_Name;
-		if (System.IO.File.Exists (Origin_Path)) {
-			System.IO.File.Move (Origin_Path, Path);
-		} else
-			print ("NO");
+		Application.CaptureScreenshot (Application.persistentDataPath + "/" + Screen_Shot_File_Name); //Application.dataPath + "/Resources/" + 
+		StartCoroutine (LoadImage ());
+	}
+
+	IEnumerator LoadImage(){
+		yield return new WaitForSeconds (1);
+		WWW www = new WWW ("File://" + Application.persistentDataPath + "/" + Screen_Shot_File_Name);
+		print ("File://" + Application.persistentDataPath + "/" + Screen_Shot_File_Name);
+		yield return www;
+
+		Texture2D tex = www.texture;
+		Rect rect = new Rect (0, 0, Screen.width,Screen.height);
+		Sprite spr = Sprite.Create (tex, rect, new Vector2 (0, 0));
+
+		img.sprite = spr;
+	}
+
+	IEnumerator ShowScore(){
+		yield return new WaitForSeconds (2);
+		endScreen.SetActive (true);
 	}
 }

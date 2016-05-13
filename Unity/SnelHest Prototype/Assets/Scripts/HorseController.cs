@@ -54,7 +54,7 @@ public class HorseController : MonoBehaviour {
 		crashed = false;
 		jumpOnce = false;
 
-		jumpForce = new Vector2 (50, 200);
+		jumpForce = new Vector2 (50, 250);
 	}
 	
 	// Update is called once per frame
