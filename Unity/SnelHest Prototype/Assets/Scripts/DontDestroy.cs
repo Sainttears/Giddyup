@@ -14,11 +14,11 @@ public class DontDestroy : MonoBehaviour {
 		
 		DontDestroyOnLoad (this.gameObject);
 
-		if (!StartScreen == null) {
+		//if (!StartScreen == null) {
 			StartScreen.SetActive (true);
 			Time.timeScale = 0;
-		} else
-			Debug.LogError ("No Startscreen assigned to DontDestroy.cs");
+		//} else
+		//	Debug.LogError ("No Startscreen assigned to DontDestroy.cs");
 	}
 
 	public void Begin(){
