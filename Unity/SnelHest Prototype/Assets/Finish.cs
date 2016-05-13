@@ -13,6 +13,7 @@ public class Finish : MonoBehaviour {
 	public AudioClip getReady;
 	public AudioClip setClip;
 	public AudioClip gunFire;
+	public AudioClip flash;
 
 	float time;
 
@@ -130,6 +131,8 @@ public class Finish : MonoBehaviour {
 	}
 
 	void TakeScreenshot(){
+		AudioSource.PlayClipAtPoint (flash, Camera.main.transform.position);
+
 		Screen_Shot_File_Name = "FinishImage.png";
 		Application.CaptureScreenshot (Application.persistentDataPath + "/" + Screen_Shot_File_Name); //Application.dataPath + "/Resources/" + 
 		StartCoroutine (LoadImage ());

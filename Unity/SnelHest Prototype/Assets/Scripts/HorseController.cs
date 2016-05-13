@@ -84,7 +84,7 @@ public class HorseController : MonoBehaviour {
 				}
 				if (Input.GetButtonUp (this.name)) {
 					if(speedInp <= 0.9f)
-						speedMod += (speedInp);
+						speedMod += (speedInp * 1.25f);
 					speedInp = 1;
 				}
 				if (Input.GetAxis (this.name) < 0) {
