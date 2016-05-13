@@ -16,6 +16,10 @@ public class HorseController : MonoBehaviour {
 	public AudioClip splashSound;
 	public AudioClip crashSound;
 
+	float floatHeight;
+	float liftForce;
+	float damping;
+
 	Finish fin;
 
 	float bomAmmount = 0;
@@ -104,7 +108,7 @@ public class HorseController : MonoBehaviour {
 					this.GetComponent<Rigidbody2D> ().AddForce (jumpForce);
 					jumpOnce = true;
 					//stamina -= 10;
-					grounded = false;
+					//grounded = false;
 				}
 				if(Input.GetButtonDown(this.name + " Jump"))
 					jumpOnce = false;
@@ -148,12 +152,16 @@ public class HorseController : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D other){
-		jumpInp = 0;
-		grounded = true;
+		if (other.transform.tag == "Lane") {
+			jumpInp = 0;
+			grounded = true;
+		}
 	}
 	void OnCollisionExit2D(Collision2D other){
-		jumpInp = -10;
-		grounded = false;
+		if (other.transform.tag == "Lane") {
+			jumpInp = -10;
+			grounded = false;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

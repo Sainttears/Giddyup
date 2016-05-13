@@ -46,8 +46,6 @@ public class Finish : MonoBehaviour {
 
 		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 
-		timeScore.text = "Race Finished!";
-
 		StartCoroutine (CountDown ());
 	}
 	
@@ -104,6 +102,9 @@ public class Finish : MonoBehaviour {
 	public void Restart(){
 		Time.timeScale = 1;
 		Application.LoadLevel (Application.loadedLevel);
+	}
+	public void Quit(){
+		Application.Quit ();
 	}
 
 	IEnumerator CountDown(){

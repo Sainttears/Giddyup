@@ -7,16 +7,17 @@ public class DontDestroy : MonoBehaviour {
 	private static DontDestroy _instance;
 	// Use this for initialization
 	void Awake () {
-		if (!_instance)
+		if (!_instance) {
 			_instance = this;
-		else
-			Destroy (this.gameObject);
-		
-		DontDestroyOnLoad (this.gameObject);
-
-		//if (!StartScreen == null) {
 			StartScreen.SetActive (true);
 			Time.timeScale = 0;
+			DontDestroyOnLoad (this.gameObject);
+		}
+		else
+			Destroy (this.gameObject);
+
+		//if (!StartScreen == null) {
+			
 		//} else
 		//	Debug.LogError ("No Startscreen assigned to DontDestroy.cs");
 	}
