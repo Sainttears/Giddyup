@@ -13,6 +13,7 @@ public class Finish : MonoBehaviour {
 	public AudioClip getReady;
 	public AudioClip setClip;
 	public AudioClip gunFire;
+	public AudioClip flash;
 
 	float time;
 
@@ -44,8 +45,6 @@ public class Finish : MonoBehaviour {
 		pauseScreen.SetActive (false);
 
 		activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
-
-		timeScore.text = "Race Finished!";
 
 		StartCoroutine (CountDown ());
 	}
@@ -104,6 +103,9 @@ public class Finish : MonoBehaviour {
 		Time.timeScale = 1;
 		Application.LoadLevel (Application.loadedLevel);
 	}
+	public void Quit(){
+		Application.Quit ();
+	}
 
 	IEnumerator CountDown(){
 		yield return new WaitForSeconds (1);
@@ -130,6 +132,8 @@ public class Finish : MonoBehaviour {
 	}
 
 	void TakeScreenshot(){
+		AudioSource.PlayClipAtPoint (flash, Camera.main.transform.position);
+
 		Screen_Shot_File_Name = "FinishImage.png";
 		Application.CaptureScreenshot (Application.persistentDataPath + "/" + Screen_Shot_File_Name); //Application.dataPath + "/Resources/" + 
 		StartCoroutine (LoadImage ());

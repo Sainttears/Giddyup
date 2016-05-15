@@ -4,7 +4,6 @@ Unity/SnelHest Prototype/Temp/
 Unity/SnelHest Prototype/Library/metadata/
 
 #ignore extensions
-*.exe
 *.lib
 *.dll
 *.idb
