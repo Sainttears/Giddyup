@@ -42,6 +42,10 @@ public class PositionChecker : MonoBehaviour {
 		return Mathf.Abs(lead) / 2;
 	}
 
+	public Transform GetLeader(){
+		return players [0];
+	}
+
 	//Get the Transform of a player (1 - Max Length)
 	public Transform GetPos(int pos){
 		return players [pos - 1];

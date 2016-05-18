@@ -32,12 +32,15 @@ public class HorseController : MonoBehaviour {
 	float speedInp = 1;
 	float jumpInp = 0;
 
+	int lives = 2;
+
 	bool grounded;
 	bool crashed;
 	bool jumpOnce;
 	bool dnf = false;
 	bool inBush = false;
 	bool inWater = false;
+	bool callOnce = true;
 
 	Vector2 crashForce;
 
@@ -68,6 +71,17 @@ public class HorseController : MonoBehaviour {
 			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
 			this.GetComponent<Animator> ().SetBool ("inBush", inBush);
 			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
+
+			Vector3 viewPos = Camera.main.WorldToViewportPoint(this.transform.position);
+			print (viewPos);
+
+			if (viewPos.x <= 0.1f)
+				speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod (), Time.deltaTime * 2);
+			if (viewPos.x <= -0.1f && callOnce)
+				OutOfBounds ();
+				//this.transform.position = new Vector3 (Camera.main.transform.position.x, this.transform.position.y, this.transform.position.z);
+			if (viewPos.x >= 0)
+				callOnce = true;
 
 			if (!crashed) {
 				//StopCoroutine (waitFor (2));
@@ -100,7 +114,7 @@ public class HorseController : MonoBehaviour {
 				speedMod -= 1.5f * Time.deltaTime;
 				//stamina += 10 * Time.deltaTime * (1 + pc.GetLead (this.transform) / 10);
 
-				speed = (speedMod / 5) * slowValue * baseMoveMod * Time.deltaTime;
+				speed = (speedMod / 5) * slowValue * baseMoveMod * Time.deltaTime * (pc.GetLead(this.transform) / 10 + 1);
 				this.GetComponent<Animator> ().SetFloat ("speed", speed);
 
 				this.transform.position += new Vector3 (speed / 10, 0, 0);
@@ -200,17 +214,36 @@ public class HorseController : MonoBehaviour {
 		inBush = false;
 	}
 
-	void OnBecameInvisible(){
-		dnf = true;
-		this.gameObject.SetActive (false);
-		//staminaBar.gameObject.SetActive (false);
-		cam.GetComponent<PositionChecker> ().DNF ();
+	void OutOfBounds(){
+		callOnce = false;
+
+		StopCoroutine (OnCrash ());
+
+		if (lives > 0) {
+			lives--;
+			speedMod = pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 2.5f;
+			//speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 2f, 0.5f);
+			slowValue = 1;
+			bomAmmount = 0;
+			inWater = false;
+			inBush = false;
+			crashed = false;
+		} else {
+			dnf = true;
+			this.gameObject.SetActive (false);
+			//staminaBar.gameObject.SetActive (false);
+			cam.GetComponent<PositionChecker> ().DNF ();
+		}
 	}
 
 	IEnumerator OnCrash(){
 		this.GetComponent<Rigidbody2D> ().AddForce (crashForce);
 		yield return new WaitUntil (() => speedMod <= 0);
 		crashed = false;
+	}
+
+	public float GetSpeedMod(){
+		return speedMod;
 	}
 }
 
