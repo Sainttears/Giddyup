@@ -1,0 +1,6 @@
+tutorial sign001 = 0 0 81 90
+tutorial sign002 = 82 0 81 90
+tutorial sign003 = 164 0 81 90
+tutorial sign004 = 0 91 81 90
+tutorial sign005 = 82 91 81 90
+tutorial sign006 = 164 91 81 90
