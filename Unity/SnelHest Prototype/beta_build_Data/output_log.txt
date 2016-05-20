@@ -14,7 +14,7 @@ Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta
 Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.044 seconds
+- Completed reload, in  0.106 seconds
 Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
@@ -183,7 +183,16 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.582565 ms
+UnloadTime: 6.406990 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 35f8 -> priority: 1 
-  Thread -> id: 1c4c -> priority: 1 
+  Thread -> id: 37b8 -> priority: 1 
+  Thread -> id: 2304 -> priority: 1 
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Transform:INTERNAL_get_position (UnityEngine.Vector3&)
+  at UnityEngine.Transform.get_position () [0x00000] in <filename unknown>:0 
+  at cameraScript.AddDNF () [0x00000] in <filename unknown>:0 
+  at PositionChecker.DNF () [0x00000] in <filename unknown>:0 
+  at HorseController.OnBecameInvisible () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
