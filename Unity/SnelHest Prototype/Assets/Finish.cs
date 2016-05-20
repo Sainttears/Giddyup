@@ -92,13 +92,13 @@ public class Finish : MonoBehaviour {
 				timer.text = "Race Starting in " + time.ToString ("F0") + " seconds...";
 				time -= Time.deltaTime;
 
-				if (!p1Fin && Input.GetButton ("Player One") || Input.GetButton ("Player One Jump"))
+				if (!p1Fin && (Input.GetButton ("Player One") || Input.GetButton ("Player One Jump")))
 					time = 20;
-				if (!p2Fin && Input.GetButton ("Player Two") || Input.GetButton ("Player Two Jump"))
+				if (!p2Fin && (Input.GetButton ("Player Two") || Input.GetButton ("Player Two Jump")))
 					time = 20;
-				if (!p3Fin && Input.GetButton ("Player Three") || Input.GetButton ("Player Three Jump"))
+				if (!p3Fin && (Input.GetButton ("Player Three") || Input.GetButton ("Player Three Jump")))
 					time = 20;
-				if (!p4Fin && Input.GetButton ("Player Four") || Input.GetButton ("Player Four Jump"))
+				if (!p4Fin && (Input.GetButton ("Player Four") || Input.GetButton ("Player Four Jump")))
 					time = 20;
 				if (playersFinnished == 4) {
 					time = 5;
