@@ -106,7 +106,7 @@ public class Finish : MonoBehaviour {
 				}
 
 				if (time <= 0) {
-					//Start Race
+					Application.LoadLevel (1);
 				}
 			}
 		}
@@ -115,7 +115,6 @@ public class Finish : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		print ("bajs");
 		if (playersFinnished < 1 && !tutorial) {
 			TakeScreenshot ();
 		}
@@ -202,7 +201,9 @@ public class Finish : MonoBehaviour {
 	}
 
 	IEnumerator ShowScore(){
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
 		endScreen.SetActive (true);
+		yield return new WaitForSeconds (10);
+		Application.LoadLevel (0);
 	}
 }

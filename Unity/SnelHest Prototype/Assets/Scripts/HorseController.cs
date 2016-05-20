@@ -32,7 +32,7 @@ public class HorseController : MonoBehaviour {
 	float speedInp = 1;
 	float jumpInp = 0;
 
-	int lives = 2;
+	int lives = 1;
 
 	bool grounded;
 	bool crashed;
@@ -75,7 +75,7 @@ public class HorseController : MonoBehaviour {
 			Vector3 viewPos = Camera.main.WorldToViewportPoint(this.transform.position);
 
 			if (viewPos.x <= 0.1f)
-				speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod (), Time.deltaTime * 2);
+				speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod (), Time.deltaTime * 0.5f);
 			if (viewPos.x <= -0.1f && callOnce)
 				OutOfBounds ();
 				//this.transform.position = new Vector3 (Camera.main.transform.position.x, this.transform.position.y, this.transform.position.z);
@@ -220,7 +220,7 @@ public class HorseController : MonoBehaviour {
 
 		if (lives > 0) {
 			lives--;
-			speedMod = pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 1.5f;
+			speedMod = pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 1.25f;
 			//speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 2f, 0.5f);
 			slowValue = 1;
 			bomAmmount = 0;
