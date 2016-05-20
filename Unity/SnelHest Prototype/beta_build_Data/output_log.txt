@@ -14,47 +14,7 @@ Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\be
 Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.137 seconds
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<RI> Initializing input.
-<RI.Hid> Failed to create device file:
- 2 Det går inte att hitta filen.
-
- 
-(Filename:  Line: 54)
-
-<RI.Hid> Failed to create device file:
- 2 Det går inte att hitta filen.
-
- 
-(Filename:  Line: 54)
-
-<RI.Hid> Failed to create device file:
- 2 Det går inte att hitta filen.
-
- 
-(Filename:  Line: 54)
-
-<RI> Input initialized.
-Initialize engine version: 5.3.4f1 (fdbb5133b820)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 860M  (ID=0x1392)
-    Vendor:   NVIDIA
-    VRAM:     4037 MB
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.130 seconds
+- Completed reload, in  0.107 seconds
 Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\robert\Documents\Giddyup\Unity\SnelHest Prototype\beta_build_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
@@ -79,12 +39,225 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.739693 ms
+UnloadTime: 0.929290 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.736687 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 2942.
+Total: 0.658158 ms (FindLiveObjects: 0.120170 ms CreateObjectMapping: 0.048752 ms MarkObjects: 0.478543 ms  DeleteObjects: 0.005559 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.991006 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.357945 ms (FindLiveObjects: 0.054739 ms CreateObjectMapping: 0.021382 ms MarkObjects: 0.254453 ms  DeleteObjects: 0.016250 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.795007 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.363505 ms (FindLiveObjects: 0.050463 ms CreateObjectMapping: 0.024803 ms MarkObjects: 0.282678 ms  DeleteObjects: 0.004704 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.052454 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2946.
+Total: 0.933139 ms (FindLiveObjects: 0.182180 ms CreateObjectMapping: 0.046614 ms MarkObjects: 0.696647 ms  DeleteObjects: 0.006842 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.637337 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.371630 ms (FindLiveObjects: 0.043192 ms CreateObjectMapping: 0.023948 ms MarkObjects: 0.286100 ms  DeleteObjects: 0.017961 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.902348 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2946.
+Total: 0.849747 ms (FindLiveObjects: 0.159942 ms CreateObjectMapping: 0.044903 ms MarkObjects: 0.637203 ms  DeleteObjects: 0.006842 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.037621 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.437489 ms (FindLiveObjects: 0.054739 ms CreateObjectMapping: 0.029080 ms MarkObjects: 0.333569 ms  DeleteObjects: 0.019672 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.966924 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2946.
+Total: 0.963502 ms (FindLiveObjects: 0.196720 ms CreateObjectMapping: 0.044475 ms MarkObjects: 0.714180 ms  DeleteObjects: 0.007270 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.775041 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.410119 ms (FindLiveObjects: 0.060299 ms CreateObjectMapping: 0.025231 ms MarkObjects: 0.302778 ms  DeleteObjects: 0.020527 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.790303 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2946.
+Total: 0.597859 ms (FindLiveObjects: 0.102209 ms CreateObjectMapping: 0.033356 ms MarkObjects: 0.456306 ms  DeleteObjects: 0.005131 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.993120 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 1.117885 ms (FindLiveObjects: 0.157804 ms CreateObjectMapping: 0.104347 ms MarkObjects: 0.806554 ms  DeleteObjects: 0.046614 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.058722 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.895933 ms (FindLiveObjects: 0.115038 ms CreateObjectMapping: 0.068424 ms MarkObjects: 0.697502 ms  DeleteObjects: 0.012401 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.803988 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 2946.
+Total: 0.707766 ms (FindLiveObjects: 0.142836 ms CreateObjectMapping: 0.034639 ms MarkObjects: 0.524730 ms  DeleteObjects: 0.004704 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at HorseController.OnTriggerEnter2D (UnityEngine.Collider2D other) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+File://C:/Users/robert/AppData/LocalLow/DefaultCompany/SnelHest Prototype/FinishImage.png
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.902482 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 865.
+Total: 0.392158 ms (FindLiveObjects: 0.047897 ms CreateObjectMapping: 0.021382 ms MarkObjects: 0.293370 ms  DeleteObjects: 0.018389 ms)
+
 NullReferenceException: Object reference not set to an instance of an object
   at Finish.Start () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 286c -> priority: 1 
-  Thread -> id: 1d44 -> priority: 1 
+  Thread -> id: 10dc -> priority: 1 
+  Thread -> id: e0 -> priority: 1 
