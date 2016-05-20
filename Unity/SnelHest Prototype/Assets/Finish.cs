@@ -40,6 +40,8 @@ public class Finish : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		pauseScreen.SetActive (false);
+
 		if (!tutorial) {
 			time = 0;
 
@@ -50,7 +52,6 @@ public class Finish : MonoBehaviour {
 
 			endScreen.SetActive (false);
 			cd.gameObject.SetActive (false);
-			pauseScreen.SetActive (false);
 
 			activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 
@@ -65,6 +66,16 @@ public class Finish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			if (Time.timeScale == 1) {
+				pauseScreen.SetActive (true);
+				Time.timeScale = 0;
+			} else {
+				pauseScreen.SetActive (false);
+				Time.timeScale = 1;
+			}
+		}
+
 		if (!tutorial) {
 			if (playersFinnished == activePlayers)
 				StartCoroutine (ShowScore ());
@@ -74,16 +85,6 @@ public class Finish : MonoBehaviour {
 		
 				time += Time.deltaTime;
 				timer.text = time.ToString ("F2");
-			}
-
-			if (Input.GetKeyDown (KeyCode.Escape)) {
-				if (Time.timeScale == 1) {
-					pauseScreen.SetActive (true);
-					Time.timeScale = 0;
-				} else {
-					pauseScreen.SetActive (false);
-					Time.timeScale = 1;
-				}
 			}
 		} else {
 			if (playersFinnished == 1) {
