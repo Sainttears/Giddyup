@@ -73,7 +73,6 @@ public class HorseController : MonoBehaviour {
 			this.GetComponent<Animator> ().SetBool ("inWater", inWater);
 
 			Vector3 viewPos = Camera.main.WorldToViewportPoint(this.transform.position);
-			print (viewPos);
 
 			if (viewPos.x <= 0.1f)
 				speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod (), Time.deltaTime * 2);
@@ -221,7 +220,7 @@ public class HorseController : MonoBehaviour {
 
 		if (lives > 0) {
 			lives--;
-			speedMod = pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 2.5f;
+			speedMod = pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 1.5f;
 			//speedMod = Mathf.Lerp(speedMod, pc.GetLeader ().GetComponent<HorseController> ().GetSpeedMod () * 2f, 0.5f);
 			slowValue = 1;
 			bomAmmount = 0;
