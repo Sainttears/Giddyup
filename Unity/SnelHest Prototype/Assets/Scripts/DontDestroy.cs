@@ -9,8 +9,8 @@ public class DontDestroy : MonoBehaviour {
 	void Awake () {
 		if (!_instance) {
 			_instance = this;
-			StartScreen.SetActive (true);
-			Time.timeScale = 0;
+			//StartScreen.SetActive (true);
+			//Time.timeScale = 0;
 			DontDestroyOnLoad (this.gameObject);
 		}
 		else
