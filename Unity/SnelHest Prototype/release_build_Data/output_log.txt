@@ -1,0 +1,429 @@
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 860M     (ID=0x1392)
+    Vendor:   NVIDIA
+    VRAM:     1995 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.169 seconds
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Elis\Documents\Giddyup\Unity\SnelHest Prototype\release_build_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 59Hz; virtual: 4800x1350 at 0,0
+<RI> Initializing input.
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI.Hid> Failed to create device file:
+ 2 Det går inte att hitta filen.
+
+ 
+(Filename:  Line: 54)
+
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.688486 ms
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 714)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 714)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Finish.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 714)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick connected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1353)
+
+Joystick connected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1353)
+
+Joystick connected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1353)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick reconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1325)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
+Joystick disconnected ("Nintendo RVL-CNT-01").
+ 
+(Filename:  Line: 1260)
+
