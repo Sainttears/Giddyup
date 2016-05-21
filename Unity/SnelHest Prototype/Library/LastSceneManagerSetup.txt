@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/RobbansScene.unity
+- path: C:/Users/Elis/Desktop/Giddyup/Unity/SnelHest Prototype/Assets/Scenes/ElisPrototypeScene.unity
   isLoaded: 1
   isActive: 1

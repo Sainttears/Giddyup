@@ -140,7 +140,8 @@ public class HorseController : MonoBehaviour {
 			}
 
 			speedInp = Mathf.Clamp (speedInp, 0, 1);
-			speedMod = Mathf.Clamp (speedMod, 0, 100);
+			speedMod = Mathf.Clamp (speedMod, 0.025f, 100);
+			speed = Mathf.Clamp (speed, 0.025f, 100);
 
 			this.GetComponent<Animator> ().SetBool ("grounded", grounded);
 			this.GetComponent<Animator> ().SetBool ("crashed", crashed);
@@ -237,7 +238,7 @@ public class HorseController : MonoBehaviour {
 
 	IEnumerator OnCrash(){
 		this.GetComponent<Rigidbody2D> ().AddForce (crashForce);
-		yield return new WaitUntil (() => speedMod <= 0);
+		yield return new WaitForSeconds (1);
 		crashed = false;
 	}
 

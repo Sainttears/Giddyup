@@ -133,28 +133,28 @@ public class Finish : MonoBehaviour {
 		if (other.name == "Player One") {
 			pOneTime = time;
 			if (!tutorial) {
-				timeScore.text = timeScore.text + "Player One! - " + pOneTime.ToString ("F2");
+				timeScore.text = timeScore.text + "Player One! " + pOneTime.ToString ("F2");
 			}
 			p1Fin = true;
 		}
 		if (other.name == "Player Two") {
 			pTwoTime = time;
 			if (!tutorial) {
-				timeScore.text = timeScore.text + "Player Two! - " + pTwoTime.ToString ("F2");
+				timeScore.text = timeScore.text + "Player Two! " + pTwoTime.ToString ("F2");
 			}
 			p2Fin = true;
 		}
 		if (other.name == "Player Three") {
 			pThreeTime = time;
 			if (!tutorial) {
-				timeScore.text = timeScore.text + "Player Three! - " + pThreeTime.ToString ("F2");
+				timeScore.text = timeScore.text + "Player Three! " + pThreeTime.ToString ("F2");
 			}
 			p3Fin = true;
 		}
 		if (other.name == "Player Four") {
 			pFourTime = time;
 			if (!tutorial) {
-				timeScore.text = timeScore.text + "Player Four! - " + pFourTime.ToString ("F2");
+				timeScore.text = timeScore.text + "Player Four! " + pFourTime.ToString ("F2");
 			}
 			p4Fin = true;
 		}
