@@ -50,6 +50,8 @@ public class Finish : MonoBehaviour {
 			pThreeTime = 0;
 			pFourTime = 0;
 
+			timeScore.text = "Player Times:";
+
 			endScreen.SetActive (false);
 			cd.gameObject.SetActive (false);
 
@@ -84,7 +86,8 @@ public class Finish : MonoBehaviour {
 				activePlayers = Camera.main.GetComponent<PositionChecker> ().GetLength (0);
 		
 				time += Time.deltaTime;
-				timer.text = time.ToString ("F2");
+				if(playersFinnished != activePlayers)
+					timer.text = time.ToString ("F2");
 			}
 		} else {
 			if (playersFinnished == 1) {
@@ -118,30 +121,41 @@ public class Finish : MonoBehaviour {
 	{
 		if (playersFinnished < 1 && !tutorial) {
 			TakeScreenshot ();
+			timeScore.text = timeScore.text + "\n1st Place: ";
 		}
+		if (playersFinnished == 1)
+			timeScore.text = timeScore.text + "\n2nd Place: ";
+		if (playersFinnished == 2)
+			timeScore.text = timeScore.text + "\n3rd Place: ";
+		if (playersFinnished == 3)
+			timeScore.text = timeScore.text + "\n4th Place: ";
 
 		if (other.name == "Player One") {
 			pOneTime = time;
-			if(!tutorial)
-				timeScore.text = timeScore.text + "\nPlayer One Time: " + pOneTime.ToString("F2");
+			if (!tutorial) {
+				timeScore.text = timeScore.text + "Player One! - " + pOneTime.ToString ("F2");
+			}
 			p1Fin = true;
 		}
 		if (other.name == "Player Two") {
 			pTwoTime = time;
-			if(!tutorial)
-				timeScore.text = timeScore.text + "\nPlayer Two Time: " + pTwoTime.ToString("F2");
+			if (!tutorial) {
+				timeScore.text = timeScore.text + "Player Two! - " + pTwoTime.ToString ("F2");
+			}
 			p2Fin = true;
 		}
 		if (other.name == "Player Three") {
 			pThreeTime = time;
-			if(!tutorial)
-				timeScore.text = timeScore.text + "\nPlayer Three Time: " + pThreeTime.ToString("F2");
+			if (!tutorial) {
+				timeScore.text = timeScore.text + "Player Three! - " + pThreeTime.ToString ("F2");
+			}
 			p3Fin = true;
 		}
 		if (other.name == "Player Four") {
 			pFourTime = time;
-			if(!tutorial)
-				timeScore.text = timeScore.text + "\nPlayer Four Time: " + pFourTime.ToString("F2");
+			if (!tutorial) {
+				timeScore.text = timeScore.text + "Player Four! - " + pFourTime.ToString ("F2");
+			}
 			p4Fin = true;
 		}
 
@@ -204,6 +218,8 @@ public class Finish : MonoBehaviour {
 	IEnumerator ShowScore(){
 		yield return new WaitForSeconds (1);
 		endScreen.SetActive (true);
+		timer.text = "Returning to Tutorial...";
+		timer.alignment = TextAnchor.MiddleLeft;
 		yield return new WaitForSeconds (10);
 		Application.LoadLevel (0);
 	}
